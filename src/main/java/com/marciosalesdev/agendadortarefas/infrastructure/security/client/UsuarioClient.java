@@ -1,0 +1,16 @@
+package com.marciosalesdev.agendadortarefas.infrastructure.security.client;
+
+import com.marciosalesdev.agendadortarefas.business.dto.UsuarioDTO;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestParam;
+
+
+@FeignClient(name = "ms-usuario", url = "${usuario.url}")
+public interface UsuarioClient {
+
+    @GetMapping
+    UsuarioDTO listarUsuarios(@RequestParam("email") String email,
+                              @RequestHeader("Authorization") String token);
+}
