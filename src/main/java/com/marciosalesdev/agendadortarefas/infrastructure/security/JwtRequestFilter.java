@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
@@ -19,9 +20,9 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     private final UserDetailsServiceImpl userDetailsService;
 
     // Construtor que inicializa as propriedades com instâncias fornecidas
-    public JwtRequestFilter(JwtUtil jwtUtil, UserDetailsServiceImpl userDetailsService, UserDetailsServiceImpl userDetailsService1) {
+    public JwtRequestFilter(JwtUtil jwtUtil, UserDetailsServiceImpl userDetailsService) {
         this.jwtUtil = jwtUtil;
-        this.userDetailsService = userDetailsService1;
+        this.userDetailsService = userDetailsService;
     }
 
     // Método chamado uma vez por requisição para processar o filtro
