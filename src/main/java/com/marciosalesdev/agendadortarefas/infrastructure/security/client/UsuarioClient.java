@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
-@FeignClient(name = "ms-usuario", url = "${usuario.url}")
+@FeignClient(name = "usuario", url = "${usuario.url}")
 public interface UsuarioClient {
 
     @GetMapping("/usuario")
